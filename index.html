@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChillBag Token</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #8b9b7e;
+        --text: #2c3424;
+        --light: #d1e4c3;
+        --hover: #6a7862;
+        --card: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: var(--primary);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      nav {
+        padding: 1rem;
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--card);
+        color: var(--text);
+        text-decoration: none;
+        transition: transform 0.3s;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+      }
+
+      .buy-button {
+        background: var(--light);
+        color: var(--text);
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: transform 0.3s;
+      }
+
+      .buy-button:hover {
+        transform: translateY(-3px);
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        padding-top: 60px;
+      }
+
+      .hero-content {
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        padding: 3rem;
+        border-radius: 20px;
+        max-width: 600px;
+      }
+
+      .hero-logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+
+      .ticker {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin: 1rem 0;
+        color: var(--light);
+      }
+
+      section {
+        padding: 4rem 1rem;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--light);
+      }
+
+      .tokenomics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .token-card {
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      .token-card h3 {
+        margin-bottom: 1rem;
+        color: var(--light);
+      }
+
+      .token-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .roadmap-container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .roadmap-item {
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+      }
+
+      .phase-tag {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: var(--light);
+        color: var(--text);
+        border-radius: 15px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        margin-top: 1rem;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--light);
+      }
+
+      footer {
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .nav-links.active {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--card);
+          padding: 1rem;
+        }
+
+        .mobile-menu {
+          display: block;
+          cursor: pointer;
+        }
+
+        .bar {
+          width: 25px;
+          height: 3px;
+          background: var(--text);
+          margin: 5px 0;
+          transition: 0.3s;
+        }
+
+        .mobile-menu.active .bar:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .mobile-menu.active .bar:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .ticker {
+          font-size: 2.5rem;
+        }
+
+        .hero-content {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img
+          src="https://pbs.twimg.com/media/GeoZ5IZbcAAazD8?format=png&name=small"
+          alt="ChillBag Logo"
+        />
+      </div>
+      <div class="nav-links">
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a
+          href="https://x.com/ChillBagToken"
+          class="social-icon"
+          target="_blank"
+        >
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a
+          href="https://t.me/+VXRIdtUqR00wYjVh"
+          class="social-icon"
+          target="_blank"
+        >
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://pump.fun" class="buy-button" target="_blank"
+          >Buy $CHBG</a
+        >
+      </div>
+      <div class="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-logo">
+          <img
+            src="https://pbs.twimg.com/media/GeoZ5IZbcAAazD8?format=png&name=small"
+            alt="ChillBag Logo"
+          />
+        </div>
+        <h1 class="ticker">$CHBG</h1>
+        <p>Join the chillest community in crypto</p>
+        <br />
+        <a href="https://pump.fun" class="buy-button" target="_blank"
+          >Buy Now</a
+        >
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <h2 class="section-title">Tokenomics</h2>
+      <div class="tokenomics-grid">
+        <div class="token-card">
+          <h3>Total Supply</h3>
+          <div class="token-value">1,000,000,000</div>
+        </div>
+        <div class="token-card">
+          <h3>Community</h3>
+          <div class="token-value">40%</div>
+        </div>
+        <div class="token-card">
+          <h3>Liquidity</h3>
+          <div class="token-value">30%</div>
+        </div>
+        <div class="token-card">
+          <h3>Development</h3>
+          <div class="token-value">30%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <h2 class="section-title">Roadmap</h2>
+      <div class="roadmap-container">
+        <div class="roadmap-item">
+          <span class="phase-tag">Phase 1</span>
+          <h3>Community Building</h3>
+          <p>Launch token and build initial community</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <span class="phase-tag">Phase 2</span>
+          <h3>Game Development</h3>
+          <p>Begin development of community game</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <span class="phase-tag">Phase 3</span>
+          <h3>Gaming Events</h3>
+          <p>Launch community gaming events and tournaments</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 30%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      >
+        <a
+          href="https://x.com/ChillBagToken"
+          class="social-icon"
+          target="_blank"
+        >
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a
+          href="https://t.me/+VXRIdtUqR00wYjVh"
+          class="social-icon"
+          target="_blank"
+        >
+          <i class="fab fa-telegram"></i>
+        </a>
+      </div>
+      <p>© 2024 ChillBag Token. Stay Chill!</p>
+    </footer>
+
+    <script>
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          if (navLinks.classList.contains("active")) {
+            mobileMenu.classList.remove("active");
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
