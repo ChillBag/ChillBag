@@ -1,0 +1,103 @@
+{
+  "siteConfig": {
+    "name": "ChillBag Token",
+    "ticker": "CHBG",
+    "theme": {
+      "colors": {
+        "background": "#8B9B7E",
+        "text": "#2C3424",
+        "accent": "#D1E4C3",
+        "hover": "#6A7862",
+        "cardBackground": "rgba(255, 255, 255, 0.1)",
+        "glow": "rgba(209, 228, 195, 0.5)"
+      }
+    },
+    "links": {
+      "logo": "https://pbs.twimg.com/media/GeoZ5IZbcAAazD8?format=png&name=small",
+      "buy": "https://pump.fun",
+      "social": {
+        "twitter": "https://x.com/ChillBagToken",
+        "telegram": "https://t.me/+VXRIdtUqR00wYjVh"
+      }
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "ChillBag Token",
+      "subtitle": "Join the chillest community in crypto",
+      "cta": "Buy $CHBG"
+    },
+    "tokenomics": {
+      "totalSupply": {
+        "value": "1000000000",
+        "formatted": "1,000,000,000",
+        "label": "Total Supply"
+      },
+      "distribution": [
+        {
+          "label": "Community",
+          "value": 40,
+          "formatted": "40%",
+          "description": "Reserved for community initiatives and rewards"
+        },
+        {
+          "label": "Liquidity",
+          "value": 30,
+          "formatted": "30%",
+          "description": "Dedicated to ensure trading liquidity"
+        },
+        {
+          "label": "Development",
+          "value": 30,
+          "formatted": "30%",
+          "description": "Allocated for development and marketing"
+        }
+      ]
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "phases": [
+        {
+          "phase": "Phase 1",
+          "title": "Community Building",
+          "description": "Launch token and build initial community",
+          "progress": 100,
+          "status": "completed",
+          "milestones": [
+            "Token Launch",
+            "Community Growth",
+            "Social Media Presence"
+          ]
+        },
+        {
+          "phase": "Phase 2",
+          "title": "Game Development",
+          "description": "Begin development of community game",
+          "progress": 60,
+          "status": "in-progress",
+          "milestones": ["Game Design", "Development Kickoff", "Beta Testing"]
+        },
+        {
+          "phase": "Phase 3",
+          "title": "Gaming Events",
+          "description": "Launch community gaming events and tournaments",
+          "progress": 30,
+          "status": "upcoming",
+          "milestones": [
+            "Event Planning",
+            "Tournament Structure",
+            "Prize Pool Setup"
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-12",
+    "language": "en",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "description": "ChillBag Token - The chillest community in crypto",
+    "keywords": ["ChillBag", "CHBG", "crypto", "token", "community", "gaming"]
+  }
+}
